@@ -116,7 +116,7 @@
           "path": "router/demo-aftereach",
           "name": "demo-aftereach",
           "style": {
-            "navigationBarTitleText": "afterEach 钩子演示"
+            "navigationBarTitleText": "中间件触发演示"
           }
         },
         {
@@ -130,7 +130,7 @@
           "path": "router/demo-object",
           "name": "demo-object",
           "style": {
-            "navigationBarTitleText": "对象路径跳转"
+            "navigationBarTitleText": "对象参数传递"
           }
         },
         {
@@ -144,7 +144,7 @@
           "path": "router/demo-protected",
           "name": "demo-protected",
           "style": {
-            "navigationBarTitleText": "受保护页面"
+            "navigationBarTitleText": "受保护页面（守卫拦截）"
           }
         },
         {
@@ -165,7 +165,7 @@
           "path": "router/index",
           "name": "router",
           "style": {
-            "navigationBarTitleText": "路由管理"
+            "navigationBarTitleText": "导航与中间件"
           }
         },
         {

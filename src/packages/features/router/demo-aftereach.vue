@@ -3,18 +3,24 @@
  * 页面元信息
  * @see https://oiyo.js.org/docs/manual/page/meta
  */
+import type { RootContext } from '~/types/root-context'
+
 definePageMeta({
   name: 'demo-aftereach',
   style: {
-    navigationBarTitleText: 'afterEach 钩子演示',
+    navigationBarTitleText: '中间件触发演示',
   },
 })
 
-const router = useRouter()
+const { toast } = useRootContext<RootContext>()
 
 function goBack() {
-  router.back()
+  uni.navigateBack()
 }
+
+onShow(() => {
+  setTimeout(() => toast.show('全局中间件已触发！'), 500)
+})
 </script>
 
 <template>
@@ -26,24 +32,24 @@ function goBack() {
           📊
         </view>
         <view class="mb-2 text-5 font-bold wot-text-text-main">
-          afterEach 钩子演示
+          中间件触发演示
         </view>
         <view class="text-3.5 wot-text-text-secondary">
-          这个页面用于演示 afterEach 钩子的触发
+          进入本页会触发全局中间件（logger 记录导航、theme 初始化主题）
         </view>
       </view>
     </view>
 
     <!-- 内容 -->
-    <DemoBlock title="afterEach 演示成功" transparent>
+    <DemoBlock title="全局中间件触发成功" transparent>
       <view class="border border-green-200 rounded-2 bg-green-50 p-4 dark:bg-green-900/20">
         <view class="mb-2 text-4 text-green-700 font-bold dark:text-green-300">
           🎉 恭喜！
         </view>
         <view class="text-3.5 text-green-600 leading-relaxed dark:text-green-200">
-          如果你能看到这个页面，说明 afterEach 钩子已经触发了！\n
-          打开浏览器控制台（F12 → Console）可以看到相关的日志输出。\n
-          afterEach 钩子常用于页面统计、埋点上报等导航后处理。
+          如果你能看到这个页面，说明全局中间件已经执行了！\n
+          打开浏览器控制台（F12 → Console）可以看到 logger 中间件的导航日志。\n
+          theme 中间件会在每次导航前初始化主题，页面 onShow 会弹出提示。
         </view>
       </view>
     </DemoBlock>

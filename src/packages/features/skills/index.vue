@@ -47,8 +47,8 @@ const skills = [
     color: '#5856D6',
   },
   {
-    name: 'wot-router-usage',
-    desc: '@wot-ui/router 轻量级路由库使用指南',
+    name: 'oiyo-middleware-guide',
+    desc: 'Oiyo 页面中间件与导航使用指南',
     icon: 'location',
     color: '#FF2D55',
   },

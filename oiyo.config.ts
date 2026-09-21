@@ -21,10 +21,6 @@ export default defineOiyoConfig({
 
       'pinia',
       { from: '@wot-ui/ui', types: true },
-      {
-        from: '@wot-ui/router',
-        only: ['createRouter', 'useRouter', 'useRoute'],
-      },
     ],
   },
   ide: {

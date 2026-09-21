@@ -10,8 +10,7 @@ definePageMeta({
   },
 })
 
-const router = useRouter()
-const route = useRoute()
+const { currentRoute } = useCurrentRoute()
 
 // 接收参数
 const receivedQuery = ref({})
@@ -24,7 +23,7 @@ onLoad((option) => {
   // 如果有user参数，尝试解码对象
   if (option && option.user) {
     try {
-      decodedUser.value = JSON.parse(decodeURIComponent(decodeURIComponent(option.user)))
+      decodedUser.value = JSON.parse(decodeURIComponent(option.user))
     }
     catch (e) {
       console.error('解码user参数失败:', e)
@@ -33,11 +32,11 @@ onLoad((option) => {
 })
 
 function goBack() {
-  router.back()
+  uni.navigateBack()
 }
 
 function pushToGuard() {
-  router.push('/packages/features/router/demo-guard')
+  uni.navigateTo({ url: '/packages/features/router/demo-guard' })
 }
 </script>
 
@@ -67,7 +66,7 @@ function pushToGuard() {
               路径:
             </text>
             <text class="text-3.5 font-mono wot-text-text-main">
-              {{ route.path }}
+              {{ currentRoute.path }}
             </text>
           </view>
           <view class="flex items-center justify-between border-b py-2 wot-border-border-main">
@@ -75,7 +74,7 @@ function pushToGuard() {
               查询字符串:
             </text>
             <text class="text-3.5 font-mono wot-text-text-main">
-              {{ JSON.stringify(route.query) }}
+              {{ JSON.stringify(currentRoute.query) }}
             </text>
           </view>
           <view class="flex items-center justify-between py-2">
@@ -117,24 +116,24 @@ function pushToGuard() {
             </text>
           </view>
           <view class="mt-3 text-3.5 wot-text-text-secondary">
-            使用 JSON.parse(decodeURIComponent(decodeURIComponent(option.user))) 解码
+            使用 JSON.parse(decodeURIComponent(option.user)) 解码
           </view>
         </view>
       </view>
     </DemoBlock>
 
-    <!-- Query vs Params 说明 -->
-    <DemoBlock title="Query vs Params 说明" transparent>
+    <!-- 查询参数说明 -->
+    <DemoBlock title="查询参数说明" transparent>
       <view class="rounded-2 p-4 wot-bg-filled-oppo">
         <view class="mb-3 text-4 font-bold wot-text-text-main">
-          两种参数传递方式说明
+          查询参数传递方式说明
         </view>
         <view class="mb-3 border border-orange-200 rounded-2 bg-orange-50 p-3 dark:bg-orange-900/20">
           <view class="mb-2 text-3.5 text-orange-700 font-bold dark:text-orange-300">
             ⚠️ 重要说明
           </view>
           <view class="text-3 text-orange-600 leading-relaxed dark:text-orange-200">
-            在 @wot-ui/router 中，query 和 params 参数都会放在 URL 中，两者在实际效果上并无区别。这种 API 设计主要是为了与 vue-router 保持一致。
+            查询参数通过 URL 传递，页面内用 onLoad(option) 接收
           </view>
         </view>
         <view class="space-y-3">
@@ -143,21 +142,19 @@ function pushToGuard() {
               Query 写法 (当前演示)
             </view>
             <view class="text-3 text-blue-600 leading-relaxed dark:text-blue-200">
-              • 使用 path + query 组合\n
               • 参数以查询字符串形式出现\n
-              • 写法: router.push({ path: '/page', query: { key: 'value' } })\n
+              • 写法: uni.navigateTo({ url: '/page?key=value' })\n
               • 结果: /page?key=value
             </view>
           </view>
           <view class="border border-green-200 rounded-2 bg-green-50 p-3 dark:bg-green-900/20">
             <view class="mb-2 text-3.5 text-green-700 font-bold dark:text-green-300">
-              Params 写法
+              对象参数写法
             </view>
             <view class="text-3 text-green-600 leading-relaxed dark:text-green-200">
-              • 使用 name + params 组合\n
-              • 参数同样以查询字符串形式出现\n
-              • 写法: router.push({ name: 'page', params: { key: 'value' } })\n
-              • 结果: /page?key=value (效果相同)
+              • 对象参数需 JSON.stringify + encodeURIComponent 序列化\n
+              • 写法: uni.navigateTo({ url: '/page?user=' + encodeURIComponent(JSON.stringify(obj)) })\n
+              • 接收方用 onLoad(option) 解码
             </view>
           </view>
         </view>
@@ -173,9 +170,8 @@ function pushToGuard() {
         <view class="wot-bg-bg border rounded-2 p-3 wot-border-border-main">
           <text class="text-3 leading-relaxed font-mono wot-text-text-secondary">
             // 发送方
-            router.push({
-            path: '/demo-query',
-            query: { keyword: 'vue', type: 'framework' }
+            uni.navigateTo({
+            url: '/demo-query?keyword=vue&type=framework'
             })
 
             // 接收方

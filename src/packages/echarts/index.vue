@@ -22,12 +22,8 @@ definePageMeta({
   },
 })
 
-const router = useRouter()
-
 function navigateToAsync() {
-  router.push({
-    name: 'echartsAsync',
-  })
+  uni.navigateTo({ url: '/packages/async-echarts/index' })
 }
 </script>
 

@@ -1,13 +1,9 @@
 <script lang="ts" setup>
-const router = useRouter()
-
-const route = useRoute()
-
-const { activeTabbar, getTabbarItemValue, setTabbarItemActive, tabbarList } = useTabbar()
+const { activeTabbar, getTabbarItemValue, setTabbarItemActive, tabbarList, getTabbarPath, setTabbarActiveByPath } = useTabbar()
 
 function handleTabbarChange({ value }: { value: string }) {
   setTabbarItemActive(value)
-  router.pushTab({ name: value })
+  uni.switchTab({ url: getTabbarPath(value) })
 }
 
 onMounted(() => {
@@ -15,8 +11,10 @@ onMounted(() => {
   uni.hideTabBar()
   // #endif
   nextTick(() => {
-    if (route.name && route.name !== activeTabbar.value!.name) {
-      setTabbarItemActive(route.name)
+    const pages = getCurrentPages()
+    const page = pages[pages.length - 1] as { route?: string } | undefined
+    if (page?.route) {
+      setTabbarActiveByPath(page.route)
     }
   })
 })

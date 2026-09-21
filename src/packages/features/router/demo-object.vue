@@ -6,23 +6,22 @@
 definePageMeta({
   name: 'demo-object',
   style: {
-    navigationBarTitleText: '对象路径跳转',
+    navigationBarTitleText: '对象参数传递',
   },
 })
 
-const router = useRouter()
-const route = useRoute()
+const { currentRoute } = useCurrentRoute()
 
 function goBack() {
-  router.back()
+  uni.navigateBack()
 }
 
 function pushToParams() {
-  router.push({ name: 'demo-params', params: { username: 'eduardo' } })
+  uni.navigateTo({ url: '/packages/features/router/demo-params?username=eduardo' })
 }
 
 function pushToQuery() {
-  router.push({ path: '/packages/features/router/demo-query', query: { keyword: 'vue', type: 'framework' } })
+  uni.navigateTo({ url: '/packages/features/router/demo-query?keyword=vue&type=framework' })
 }
 </script>
 
@@ -35,10 +34,10 @@ function pushToQuery() {
           🎯
         </view>
         <view class="mb-2 text-5 font-bold wot-text-text-main">
-          对象路径跳转演示
+          对象参数传递演示
         </view>
         <view class="text-3.5 wot-text-text-secondary">
-          使用 router.push({ path: '/path' }) 进行跳转
+          使用 uni.navigateTo({ url }) 携带参数进行跳转
         </view>
       </view>
     </view>
@@ -55,7 +54,7 @@ function pushToQuery() {
               路径:
             </text>
             <text class="text-3.5 font-mono wot-text-text-main">
-              {{ route.path }}
+              {{ currentRoute.path }}
             </text>
           </view>
           <view class="flex items-center justify-between border-b py-2 wot-border-border-main">
@@ -71,7 +70,7 @@ function pushToQuery() {
               代码:
             </text>
             <text class="text-3.5 font-mono wot-text-text-main">
-              router.push({ path: '/packages/features/router/demo-object' })
+              uni.navigateTo({ url: '/packages/features/router/demo-object' })
             </text>
           </view>
         </view>
@@ -86,11 +85,11 @@ function pushToQuery() {
             params 参数传递
           </view>
           <view class="mb-3 text-3.5 wot-text-text-secondary">
-            使用 name + params 组合传递参数
+            参数直接拼接到 url 查询字符串，页面内用 onLoad(option) 接收
           </view>
           <view class="wot-bg-bg mb-3 border rounded-2 p-3 wot-border-border-main">
             <text class="text-3 font-mono wot-text-text-secondary">
-              router.push({ name: 'demo-params', params: { username: 'eduardo' } })
+              uni.navigateTo({ url: '/packages/features/router/demo-params?username=eduardo' })
             </text>
           </view>
           <WdButton type="primary" block @click="pushToParams">
@@ -103,11 +102,11 @@ function pushToQuery() {
             query 参数传递
           </view>
           <view class="mb-3 text-3.5 wot-text-text-secondary">
-            使用 path + query 组合传递参数
+            多个参数用 & 连接，页面内用 onLoad(option) 接收
           </view>
           <view class="wot-bg-bg mb-3 border rounded-2 p-3 wot-border-border-main">
             <text class="text-3 font-mono wot-text-text-secondary">
-              router.push({ path: '/demo-query', query: { keyword: 'vue' } })
+              uni.navigateTo({ url: '/packages/features/router/demo-query?keyword=vue&type=framework' })
             </text>
           </view>
           <WdButton type="success" block @click="pushToQuery">

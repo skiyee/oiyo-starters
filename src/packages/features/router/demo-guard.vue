@@ -10,22 +10,18 @@ definePageMeta({
   },
 })
 
-const router = useRouter()
-
 function goBack() {
-  router.back()
+  uni.navigateBack()
 }
 
-// 演示权限拦截
+// 前往受保护页面，触发全局守卫确认拦截
 function handleBeforeEach() {
-  router.push({
-    name: 'demo-protected',
-  })
+  uni.navigateTo({ url: '/packages/features/router/demo-protected' })
 }
 
-// 跳转到afterEach演示页面
+// 跳转到中间件触发演示页面，验证全局中间件在每次导航前执行
 function demoAfterEachPage() {
-  router.push('/packages/features/router/demo-aftereach')
+  uni.navigateTo({ url: '/packages/features/router/demo-aftereach' })
 }
 </script>
 
@@ -41,35 +37,43 @@ function demoAfterEachPage() {
           导航守卫演示
         </view>
         <view class="text-3.5 wot-text-text-secondary">
-          演示 beforeEach 和 afterEach 守卫功能
+          演示全局页面中间件的拦截与触发
         </view>
       </view>
     </view>
 
-    <!-- 守卫演示 -->
-    <DemoBlock title="守卫演示" transparent>
+    <!-- 中间件演示 -->
+    <DemoBlock title="中间件演示" transparent>
+      <view class="mb-3 border border-blue-200 rounded-2 bg-blue-50 p-3 dark:bg-blue-900/20">
+        <view class="mb-2 text-3.5 text-blue-700 font-bold dark:text-blue-300">
+          💡 全局页面中间件
+        </view>
+        <view class="text-3 text-blue-600 leading-relaxed dark:text-blue-200">
+          src/middlewares/ 下的 .global 中间件在每次页面进入前执行：guard.global.ts 拦截受保护页面、theme.global.ts 初始化主题、logger.global.ts 记录导航日志。
+        </view>
+      </view>
       <view class="space-y-3">
         <view class="rounded-2 p-4 wot-bg-filled-oppo">
           <view class="mb-3 text-4 font-bold wot-text-text-main">
-            前置导航守卫拦截
+            全局守卫拦截（guard.global.ts）
           </view>
           <view class="mb-3 text-3.5 wot-text-text-secondary">
-            跳转前交互，可以拦截导航
+            进入受保护页面时会触发全局中间件的确认弹窗，确认后才会放行
           </view>
-          <WdButton type="error" block @click="handleBeforeEach">
-            📊 beforeEach 演示
+          <WdButton type="warning" block @click="handleBeforeEach">
+            🔒 触发守卫拦截
           </WdButton>
         </view>
 
         <view class="rounded-2 p-4 wot-bg-filled-oppo">
           <view class="mb-3 text-4 font-bold wot-text-text-main">
-            后置导航钩子演示
+            全局中间件触发演示
           </view>
           <view class="mb-3 text-3.5 wot-text-text-secondary">
-            跳转到专门的 afterEach 演示页面，体验页面统计、埋点上报等功能
+            进入页面会触发 theme.global.ts / logger.global.ts 等全局中间件
           </view>
           <WdButton type="success" block @click="demoAfterEachPage">
-            📊 afterEach 演示
+            📊 中间件触发演示
           </WdButton>
         </view>
       </view>

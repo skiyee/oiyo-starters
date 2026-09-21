@@ -10,15 +10,14 @@ definePageMeta({
   },
 })
 
-const router = useRouter()
-const route = useRoute()
+const { currentRoute } = useCurrentRoute()
 
 function goBack() {
-  router.back()
+  uni.navigateBack()
 }
 
 function pushToObject() {
-  router.push({ path: '/packages/features/router/demo-object' })
+  uni.navigateTo({ url: '/packages/features/router/demo-object' })
 }
 </script>
 
@@ -34,7 +33,7 @@ function pushToObject() {
           字符串路径跳转演示
         </view>
         <view class="text-3.5 wot-text-text-secondary">
-          使用 router.push('/path') 进行跳转
+          使用 uni.navigateTo({ url: '/path' }) 进行跳转
         </view>
       </view>
     </view>
@@ -51,7 +50,7 @@ function pushToObject() {
               路径:
             </text>
             <text class="text-3.5 font-mono wot-text-text-main">
-              {{ route.path }}
+              {{ currentRoute.path }}
             </text>
           </view>
           <view class="flex items-center justify-between border-b py-2 wot-border-border-main">
@@ -67,7 +66,7 @@ function pushToObject() {
               代码:
             </text>
             <text class="text-3.5 font-mono wot-text-text-main">
-              router.push('/packages/features/router/demo-string')
+              uni.navigateTo({ url: '/packages/features/router/demo-object' })
             </text>
           </view>
         </view>

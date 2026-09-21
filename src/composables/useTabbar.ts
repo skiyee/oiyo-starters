@@ -4,10 +4,12 @@ export interface TabbarItem {
   active: boolean;
   title: string;
   icon: string;
+  path: string;
 }
 
 const tabbarItems = ref<TabbarItem[]>([
-  { name: 'home', active: true, title: '首页', icon: 'home' },
+  { name: 'home', active: true, title: '首页', icon: 'home', path: 'pages/home/index' },
+  { name: 'about', active: false, title: '关于', icon: 'user', path: 'pages/about/index' },
 ])
 
 export function useTabbar() {
@@ -41,11 +43,26 @@ export function useTabbar() {
     })
   }
 
+  const getTabbarPath = (name: string) => {
+    const item = tabbarItems.value.find(item => item.name === name)
+    return item ? `/${item.path}` : `/${tabbarItems.value[0]?.path ?? ''}`
+  }
+
+  const setTabbarActiveByPath = (path: string) => {
+    const normalized = path.startsWith('/') ? path.slice(1) : path
+    const item = tabbarItems.value.find(item => item.path === normalized)
+    if (item) {
+      setTabbarItemActive(item.name)
+    }
+  }
+
   return {
     tabbarList,
     activeTabbar,
     getTabbarItemValue,
     setTabbarItem,
     setTabbarItemActive,
+    getTabbarPath,
+    setTabbarActiveByPath,
   }
 }

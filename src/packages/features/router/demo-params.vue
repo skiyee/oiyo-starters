@@ -10,8 +10,7 @@ definePageMeta({
   },
 })
 
-const router = useRouter()
-const route = useRoute()
+const { currentRoute } = useCurrentRoute()
 
 // 接收参数
 const receivedParams = ref({})
@@ -24,7 +23,7 @@ onLoad((option) => {
   // 如果有user参数，尝试解码对象
   if (option && option.user) {
     try {
-      decodedUser.value = JSON.parse(decodeURIComponent(decodeURIComponent(option.user)))
+      decodedUser.value = JSON.parse(decodeURIComponent(option.user))
     }
     catch (e) {
       console.error('解码user参数失败:', e)
@@ -33,11 +32,11 @@ onLoad((option) => {
 })
 
 function goBack() {
-  router.back()
+  uni.navigateBack()
 }
 
 function pushToGuard() {
-  router.push('/packages/features/router/demo-guard')
+  uni.navigateTo({ url: '/packages/features/router/demo-guard' })
 }
 </script>
 
@@ -67,15 +66,7 @@ function pushToGuard() {
               路径:
             </text>
             <text class="text-3.5 font-mono wot-text-text-main">
-              {{ route.path }}
-            </text>
-          </view>
-          <view class="flex items-center justify-between border-b py-2 wot-border-border-main">
-            <text class="text-3.5 wot-text-text-secondary">
-              名称:
-            </text>
-            <text class="text-3.5 font-mono wot-text-text-main">
-              {{ route.name }}
+              {{ currentRoute.path }}
             </text>
           </view>
           <view class="flex items-center justify-between py-2">
@@ -114,35 +105,40 @@ function pushToGuard() {
             </text>
           </view>
           <view class="mt-3 text-3.5 wot-text-text-secondary">
-            使用 JSON.parse(decodeURIComponent(decodeURIComponent(option.user))) 解码
+            使用 JSON.parse(decodeURIComponent(option.user)) 解码
           </view>
         </view>
       </view>
     </DemoBlock>
 
     <!-- API 说明 -->
-    <DemoBlock title="API 说明" transparent>
+    <DemoBlock title="参数传递说明" transparent>
       <view class="rounded-2 p-4 wot-bg-filled-oppo">
         <view class="mb-3 text-4 font-bold wot-text-text-main">
-          Params vs Query 的区别
+          参数传递方式说明
         </view>
         <view class="mb-3 border border-orange-200 rounded-2 bg-orange-50 p-3 dark:bg-orange-900/20">
           <view class="mb-2 text-3.5 text-orange-700 font-bold dark:text-orange-300">
             ⚠️ 重要说明
           </view>
           <view class="text-3 text-orange-600 leading-relaxed dark:text-orange-200">
-            在 @wot-ui/router 中，params 和 query 参数在实际效果上并无区别，都会以查询字符串形式放在 URL 中。这种 API 设计主要是为了与 vue-router 保持一致。
+            uni-app 中参数统一通过查询字符串传递，页面内用 onLoad(option) 接收；对象参数需 JSON.stringify + encodeURIComponent 序列化
           </view>
         </view>
         <view class="wot-bg-bg border rounded-2 p-3 wot-border-border-main">
           <text class="text-3 leading-relaxed font-mono wot-text-text-secondary">
-            // Params 写法 (当前演示)
-            router.push({ name: 'demo-params', params: { username: 'eduardo' } })
+            // 发送方
+            uni.navigateTo({ url: '/demo-params?username=eduardo' })
             // 结果: /demo-params?username=eduardo
 
-            // Query 写法 (效果相同)
-            router.push({ path: '/demo-params', query: { username: 'eduardo' } })
-            // 结果: /demo-params?username=eduardo
+            // 对象参数序列化
+            uni.navigateTo({ url: '/demo-params?user=' + encodeURIComponent(JSON.stringify(user)) })
+            // 接收方
+            onLoad((option) => {
+            if (option && option.user) {
+            const user = JSON.parse(decodeURIComponent(option.user))
+            }
+            })
           </text>
         </view>
       </view>
@@ -163,7 +159,7 @@ function pushToGuard() {
 
             // 对象参数需要解码
             if (option && option.user) {
-            const user = JSON.parse(decodeURIComponent(decodeURIComponent(option.user)))
+            const user = JSON.parse(decodeURIComponent(option.user))
             }
             })
           </text>

@@ -15,8 +15,6 @@ definePageMeta({
   },
 })
 
-const router = useRouter()
-
 const { theme, toast } = useRootContext<RootContext>()
 
 const isDark = computed({
@@ -45,10 +43,8 @@ function handleThemeColorSelect(option: ThemeColorOption) {
 }
 
 // 页面跳转方法
-function navigateTo(name: string) {
-  router.push({
-    name,
-  })
+function navigateTo(url: string) {
+  uni.navigateTo({ url })
 }
 
 function openUrl(url: string) {
@@ -108,13 +104,13 @@ function openUrl(url: string) {
       <WdCellGroup custom-class="border rounded-2! overflow-hidden">
         <WdCell title="🍊 Oiyo 框架" is-link @click="openUrl('https://oiyo.js.org/')" />
         <WdCell title="🧩 WotUI 组件库" is-link @click="openUrl('https://wot-ui.cn/')" />
-        <WdCell title="🚦 Router 路由管理" is-link @click="navigateTo('router')" />
-        <WdCell title="🎨 Icon 图标" is-link @click="navigateTo('icon')" />
-        <WdCell title="✨ Unocss 原子化" is-link @click="navigateTo('styles')" />
-        <WdCell title="🍍 Pinia 持久化" is-link @click="navigateTo('pinia')" />
-        <WdCell title="💬 Fedback 反馈组件" is-link @click="navigateTo('feedback')" />
-        <WdCell title="🔄 CI/CD 持续集成" is-link @click="navigateTo('ci')" />
-        <WdCell title="📊 Uni Echarts 图表" is-link @click="navigateTo('echarts')" />
+        <WdCell title="🚦 Router 路由管理" is-link @click="navigateTo('/packages/features/router/index')" />
+        <WdCell title="🎨 Icon 图标" is-link @click="navigateTo('/packages/features/icon/index')" />
+        <WdCell title="✨ Unocss 原子化" is-link @click="navigateTo('/packages/features/styles/index')" />
+        <WdCell title="🍍 Pinia 持久化" is-link @click="navigateTo('/packages/features/pinia/index')" />
+        <WdCell title="💬 Fedback 反馈组件" is-link @click="navigateTo('/packages/features/feedback/index')" />
+        <WdCell title="🔄 CI/CD 持续集成" is-link @click="navigateTo('/packages/features/ci/index')" />
+        <WdCell title="📊 Uni Echarts 图表" is-link @click="navigateTo('/packages/echarts/index')" />
       </WdCellGroup>
     </DemoBlock>
 

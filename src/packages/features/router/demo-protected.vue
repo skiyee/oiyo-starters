@@ -6,14 +6,12 @@
 definePageMeta({
   name: 'demo-protected',
   style: {
-    navigationBarTitleText: '受保护页面',
+    navigationBarTitleText: '受保护页面（守卫拦截）',
   },
 })
 
-const router = useRouter()
-
 function goBack() {
-  router.back()
+  uni.navigateBack()
 }
 </script>
 
@@ -26,10 +24,10 @@ function goBack() {
           🔒
         </view>
         <view class="mb-2 text-5 font-bold wot-text-text-main">
-          受保护的页面
+          受保护页面（守卫拦截）
         </view>
         <view class="text-3.5 wot-text-text-secondary">
-          这个页面被路由守卫保护，只有登录用户才能访问
+          本页面被全局中间件 guard.global.ts 拦截，需要确认弹窗通过后才可进入
         </view>
       </view>
     </view>
@@ -41,9 +39,8 @@ function goBack() {
           🎉 恭喜！
         </view>
         <view class="text-3.5 text-green-600 leading-relaxed dark:text-green-200">
-          如果你能看到这个页面，说明路由守卫验证通过了！\n
-          但实际上，这个页面被配置为需要登录才能访问，\n
-          守卫应该会拦截并重定向你到首页。
+          如果你能看到这个页面，说明全局中间件 guard.global.ts 的确认弹窗已经通过！\n
+          取消确认会被拦截，无法进入本页面。
         </view>
       </view>
     </DemoBlock>

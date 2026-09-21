@@ -27,7 +27,7 @@
 - **框架**：Oiyo · UniApp · Vue 3 · TypeScript · Vite
 - **UI**：Wot UI
 - **请求**：OiyoHttp
-- **路由**：OiyoRouter · @wot-ui/router
+- **路由**：Oiyo 页面中间件 · uni 原生导航
 - **样式**：UniUnoCSS · SASS
 - **状态**：Pinia · PiniaPersist
 - **图表**：ECharts · UniEcharts
@@ -103,7 +103,7 @@ pnpm build:h5:production
 | -------------------------------------------------------------------- | --------------------------------------------------- |
 | [oiyo](https://github.com/skiyee/oiyo)                               | 颠覆以往认知的 UniApp 增强型工程框架                |
 | [wot-ui-intellisense](https://github.com/wot-ui/wot-ui-intellisense) | wot-ui vscode 代码提示插件                          |
-| [@wot-ui/router](https://github.com/wot-ui/my-uni)                   | 一个基于 vue3 和 typescript 的轻量级 uni-app 路由库 |
+| [Oiyo 页面中间件](https://oiyo.js.org/docs/manual/page/middleware) | 页面进入前的校验、重定向与导航控制 |
 | [uni-echarts](https://uni-echarts.xiaohe.ink/)                       | 适用于 uni-app 的 echarts 组件                      |
 
 ## 许可
