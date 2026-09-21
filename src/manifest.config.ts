@@ -1,0 +1,92 @@
+import { defineManifestConfig } from '@skiyee/oiyo/config'
+
+export default defineManifestConfig({
+  'name': '@oiyo-example/wot-starter',
+  'appid': '',
+  'description': '由 Oiyo 赋能的 Wot Stater 快速启动模板',
+  'versionName': import.meta.env.VITE_APP_VERSION,
+  'versionCode': '100',
+  'transformPx': false,
+  'h5': {
+    darkmode: true,
+    themeLocation: 'theme.json',
+    router: {
+      base: './',
+    },
+  },
+  'app-plus': {
+    usingComponents: true,
+    nvueStyleCompiler: 'uni-app',
+    compilerVersion: 3,
+    splashscreen: {
+      alwaysShowBeforeRender: true,
+      waiting: true,
+      autoclose: true,
+      delay: 0,
+    },
+    compatible: {
+      ignoreVersion: true,
+    },
+    modules: {},
+    distribute: {
+      android: {
+        permissions: [
+          '<uses-permission android:name="android.permission.CHANGE_NETWORK_STATE"/>',
+          '<uses-permission android:name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS"/>',
+          '<uses-permission android:name="android.permission.VIBRATE"/>',
+          '<uses-permission android:name="android.permission.READ_LOGS"/>',
+          '<uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>',
+          '<uses-feature android:name="android.hardware.camera.autofocus"/>',
+          '<uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>',
+          '<uses-permission android:name="android.permission.CAMERA"/>',
+          '<uses-permission android:name="android.permission.GET_ACCOUNTS"/>',
+          '<uses-permission android:name="android.permission.READ_PHONE_STATE"/>',
+          '<uses-permission android:name="android.permission.CHANGE_WIFI_STATE"/>',
+          '<uses-permission android:name="android.permission.WAKE_LOCK"/>',
+          '<uses-permission android:name="android.permission.FLASHLIGHT"/>',
+          '<uses-feature android:name="android.hardware.camera"/>',
+          '<uses-permission android:name="android.permission.WRITE_SETTINGS"/>',
+        ],
+        minSdkVersion: 21,
+        targetSdkVersion: 30,
+        abiFilters: [
+          'armeabi-v7a',
+          'arm64-v8a',
+        ],
+      },
+      ios: {},
+      sdkConfigs: {},
+    },
+  },
+  'quickapp': {},
+  'mp-weixin': {
+    appid: '',
+    setting: {
+      urlCheck: false,
+      es6: true,
+      minified: true,
+    },
+    darkmode: true,
+    themeLocation: 'theme.json',
+    usingComponents: true,
+    optimization: {
+      subPackages: true,
+    },
+  },
+  'mp-alipay': {
+    usingComponents: true,
+    compileOptions: {
+      globalObjectMode: 'enable',
+    },
+  },
+  'mp-baidu': {
+    usingComponents: true,
+  },
+  'mp-toutiao': {
+    usingComponents: true,
+  },
+  'uniStatistics': {
+    enable: false,
+  },
+  'vueVersion': '3',
+})
