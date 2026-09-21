@@ -1,6 +1,4 @@
 <script setup lang="ts">
-
-
 import { defineStore } from 'pinia'
 
 /**

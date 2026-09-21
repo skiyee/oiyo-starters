@@ -1,5 +1,4 @@
 <script setup lang="ts">
-
 /**
  * 页面元信息
  * @see https://oiyo.js.org/docs/manual/page/meta
@@ -10,7 +9,6 @@ definePageMeta({
     navigationBarTitleText: 'UnoCSS 演示',
   },
 })
-
 
 /**
  * 消费全局根部上下文

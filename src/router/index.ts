@@ -1,5 +1,3 @@
-
-
 import { pages, subPackages } from '~/pages.json'
 
 function generateRoutes() {
