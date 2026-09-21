@@ -46,7 +46,6 @@
     "@iconify-json/carbon": "^1.1.37",
     "@skiyee/eslint-config": "^0.2.1",
     "@types/node": "^22.15.18",
-    "@wot-ui/router": "^1.1.2",
     "@wot-ui/unocss-preset": "^1.0.0",
     "eslint": "^9.39.2",
     "sass": "^1.99.0",

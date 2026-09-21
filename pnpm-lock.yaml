@@ -36,9 +36,6 @@ importers:
       '@types/node':
         specifier: ^22.15.18
         version: 22.20.1
-      '@wot-ui/router':
-        specifier: ^1.1.2
-        version: 1.1.2(vue@3.4.21(typescript@5.9.3))
       '@wot-ui/unocss-preset':
         specifier: ^1.0.0
         version: 1.0.0(unocss@66.0.0(postcss@8.5.28)(vite@5.2.8(@types/node@22.20.1)(sass@1.101.0)(terser@5.51.2))(vue@3.4.21(typescript@5.9.3)))
@@ -2099,11 +2096,6 @@ packages:
 
   '@vue/shared@3.5.43':
     resolution: {integrity: sha512-uksS7YGMR5NZyr4JNq0Rp+QyLns0ueaz20KwzIPW9R0LH1Vnt4E+XUM29PNseEbf1www2gOuhuDi5AKOIXag9Q==}
-
-  '@wot-ui/router@1.1.2':
-    resolution: {integrity: sha512-z0+XJgeMl4DRoKQBRwSsYeoDDkyuXSNQ+jpMyxZpisp5db73+ffsP9Ac5imjjlUKfb2t9XZzpMq2kuUIaq3V/w==}
-    peerDependencies:
-      vue: ~3.4.38
 
   '@wot-ui/ui@2.3.2':
     resolution: {integrity: sha512-voPLlAsSh9mWASqYXXiYMSp8Rc9aZ3HBEYh7kAuxrADtbwtL+D+gbofUL5hd2SnSIbRVaweVD5Bb+MicZ6jIlw==}
@@ -7264,10 +7256,6 @@ snapshots:
   '@vue/shared@3.5.39': {}
 
   '@vue/shared@3.5.43': {}
-
-  '@wot-ui/router@1.1.2(vue@3.4.21(typescript@5.9.3))':
-    dependencies:
-      vue: 3.4.21(typescript@5.9.3)
 
   '@wot-ui/ui@2.3.2(vue@3.4.21(typescript@5.9.3))':
     dependencies:
