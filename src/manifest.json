@@ -1,16 +1,10 @@
 {
   "name": "@oiyo-example/minimal",
-  "appid": "",
+  "appid": "123456789",
   "description": "基于 Oiyo 框架的 UniApp 最简起手模板",
   "versionName": "1.0.0",
   "versionCode": "100",
   "transformPx": false,
-  "h5": {
-    "darkmode": true,
-    "router": {
-      "base": "./"
-    }
-  },
   "app-plus": {
     "usingComponents": true,
     "nvueStyleCompiler": "uni-app",
@@ -20,9 +14,6 @@
       "waiting": true,
       "autoclose": true,
       "delay": 0
-    },
-    "compatible": {
-      "ignoreVersion": true
     },
     "modules": {},
     "distribute": {
@@ -53,6 +44,9 @@
       },
       "ios": {},
       "sdkConfigs": {}
+    },
+    "compatible": {
+      "ignoreVersion": true
     }
   },
   "quickapp": {},
@@ -63,8 +57,8 @@
       "es6": true,
       "minified": true
     },
-    "darkmode": true,
     "usingComponents": true,
+    "darkmode": true,
     "optimization": {
       "subPackages": true
     }
@@ -84,5 +78,11 @@
   "uniStatistics": {
     "enable": false
   },
-  "vueVersion": "3"
+  "vueVersion": "3",
+  "h5": {
+    "darkmode": true,
+    "router": {
+      "base": "./"
+    }
+  }
 }
