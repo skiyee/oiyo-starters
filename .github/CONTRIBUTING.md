@@ -2,14 +2,14 @@
 
 Hey There 💜, 感谢参与贡献！在提交您的贡献之前，请务必花点时间阅读以下指南：
 
-- [行为准则](https://github.com/skiyee/oiyo/blob/main/.github/CODE_OF_CONDUCT.md)
+- [行为准则](https://github.com/oiyojs/oiyo/blob/main/.github/CODE_OF_CONDUCT.md)
 
 ## 参与开发
 
 ### 克隆
 
 ```
-git clone https://github.com/skiyee/oiyo
+git clone https://github.com/oiyojs/oiyo
 ```
 
 ### 起手
