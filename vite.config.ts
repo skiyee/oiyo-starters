@@ -1,4 +1,4 @@
-import OiyoPlugin from '@skiyee/oiyo/plugin'
+import OiyoPlugin from 'oiyo/plugin'
 import UnoPlugin from 'uni-unocss'
 import { defineConfig } from 'vite'
 

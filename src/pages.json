@@ -55,12 +55,10 @@
     "list": [
       {
         "pagePath": "pages/home/index",
-        "index": 0,
         "text": "首页"
       },
       {
         "pagePath": "pages/my/index",
-        "index": 1,
         "text": "我的"
       }
     ]

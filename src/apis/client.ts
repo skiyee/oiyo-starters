@@ -1,7 +1,7 @@
 /* eslint-disable no-console */
 
-declare module '@skiyee/oiyo/runtime' {
-  interface HttpBaseOptions {
+declare module 'oiyo/runtime' {
+  interface HttpCommonOptions {
     // 拓展参数
     requiresAuth?: boolean;
   }

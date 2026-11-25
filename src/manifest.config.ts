@@ -1,4 +1,4 @@
-import { defineManifestConfig } from '@skiyee/oiyo/config'
+import { defineManifestConfig } from 'oiyo/config'
 
 export default defineManifestConfig({
   'name': '@oiyo-example/minimal',

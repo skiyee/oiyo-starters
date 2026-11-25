@@ -8,8 +8,8 @@
    <h1>oiyo</h1>
 </div>
 
-[![NPM version](https://img.shields.io/npm/v/@skiyee/oiyo?color=D47F24&labelColor=130E0A&label=npm)](https://www.github.com/skiyee/oiyo)
-[![NPM downloads](https://img.shields.io/npm/dm/@skiyee/oiyo?color=D47F24&labelColor=130E0A&label=downloads)](https://www.github.com/skiyee/oiyo)
+[![NPM version](https://img.shields.io/npm/v/oiyo/next?color=D47F24&labelColor=130E0A&label=npm)](https://www.github.com/skiyee/oiyo)
+[![NPM downloads](https://img.shields.io/npm/dm/oiyo?color=D47F24&labelColor=130E0A&label=downloads)](https://www.github.com/skiyee/oiyo)
 [![DOCS](https://img.shields.io/badge/docs-oiyo-D47F24?labelColor=%23130E0A&color=%23D47F24)](https://oiyo.js.org)
 [![LICENSE](https://img.shields.io/badge/license-oiyo-D47F24?labelColor=130E0A&color=D47F24)](https://www.github.com/skiyee/oiyo/blob/main/LICENSE)
 

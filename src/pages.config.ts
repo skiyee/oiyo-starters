@@ -1,4 +1,4 @@
-import { definePagesConfig } from '@skiyee/oiyo/config'
+import { definePagesConfig } from 'oiyo/config'
 
 // https://oiyo.js.org/docs/api/config/define-pages-config
 export default definePagesConfig({

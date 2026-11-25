@@ -1,4 +1,4 @@
-import { defineOiyoConfig } from '@skiyee/oiyo/config'
+import { defineOiyoConfig } from 'oiyo/config'
 
 export default defineOiyoConfig({
   /**
@@ -8,14 +8,10 @@ export default defineOiyoConfig({
   scan: {
     apis: [
       'pinia',
-      // 'composables/*.ts', 无需设置这一行 oiyo 内部已内置
-      'apis/*.ts',
-      'stores/*.ts',
-      'utils/*.ts', // 这将会扫描 <srcDir>/utils 下的第一层 ts 文件
-      { from: 'types/*.ts', types: true }, // 这将会扫描 <srcDir>/types 的值以及类型
-    ],
-    components: [
-      // 'components/**/*.vue', 无需设置这一行 oiyo 内部已内置
+      './src/apis/*.ts',
+      './src/stores/*.ts',
+      './src/utils/*.ts',
+      { from: './src/types/*.ts', types: true },
     ],
   },
   /**
