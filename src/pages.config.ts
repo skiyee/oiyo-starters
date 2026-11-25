@@ -1,4 +1,6 @@
-import { definePagesConfig, type TabBar } from '@skiyee/oiyo/config'
+import type { TabBar } from '@oiyo/uniapp/config'
+
+import { definePagesConfig } from 'oiyo/config'
 
 import { tabBar } from './tabbar/config'
 

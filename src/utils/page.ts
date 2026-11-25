@@ -1,4 +1,4 @@
-import type { Page, SubPackage } from '@skiyee/oiyo'
+import type { Page, SubPackage } from '@oiyo/uniapp/config'
 
 import pagesJson from '~/pages.json'
 

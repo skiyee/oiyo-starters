@@ -1,4 +1,4 @@
-import { defineOiyoConfig } from '@skiyee/oiyo/config'
+import { defineOiyoConfig } from 'oiyo/config'
 
 /**
  * oiyo 框架配置
@@ -7,12 +7,11 @@ import { defineOiyoConfig } from '@skiyee/oiyo/config'
 export default defineOiyoConfig({
   scan: {
     apis: [
-      'apis/*.ts',
-      'utils/*.ts',
-      'stores/*.ts',
-      { from: 'types/*.ts', types: true },
-
       'pinia', // Pinia 公开 API 自动导入（defineStore / storeToRefs / createPinia 等）
+
+      './src/apis/*.ts',
+      './src/utils/*.ts',
+      './src/stores/*.ts',
     ],
   },
   ide: {

@@ -2,7 +2,7 @@
  * 扩展 oiyo 的请求配置：给所有 http 实例的 options 追加 hideErrorToast。
  * @see https://oiyo.js.org/docs/manual/data/http#拓展请求配置
  */
-declare module '@skiyee/oiyo/runtime' {
+declare module 'oiyo/runtime' {
   interface HttpCommonOptions {
     /** 出错时是否隐藏错误提示（默认 false，即自动 toast） */
     hideErrorToast?: boolean;

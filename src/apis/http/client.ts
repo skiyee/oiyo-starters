@@ -13,7 +13,7 @@
  * @see https://oiyo.js.org/docs/manual/data/http
  */
 
-import type { HttpResponse } from '@skiyee/oiyo'
+import type { HttpResponse } from 'oiyo/runtime'
 
 import type { IDoubleTokenRes } from '../types/user'
 import type { IResponse } from './types'
