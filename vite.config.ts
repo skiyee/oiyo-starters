@@ -1,4 +1,4 @@
-import OiyoPlugin from '@skiyee/oiyo/plugin'
+import OiyoPlugin from 'oiyo/plugin'
 import { UniEcharts } from 'uni-echarts/vite'
 import UniUnoCSS from 'uni-unocss'
 import { defineConfig } from 'vite'

@@ -1,4 +1,4 @@
-import { definePagesConfig } from '@skiyee/oiyo/config'
+import { definePagesConfig } from 'oiyo/config'
 
 /**
  * 页面配置

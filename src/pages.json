@@ -22,12 +22,10 @@
     "borderStyle": "@tabBorderStyle",
     "list": [
       {
-        "pagePath": "pages/home/index",
-        "index": 0
+        "pagePath": "pages/home/index"
       },
       {
-        "pagePath": "pages/about/index",
-        "index": 1
+        "pagePath": "pages/about/index"
       }
     ]
   },

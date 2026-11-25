@@ -1,4 +1,4 @@
-import { defineOiyoConfig } from '@skiyee/oiyo/config'
+import { defineOiyoConfig } from 'oiyo/config'
 
 /**
  * oiyo 框架配置
@@ -14,13 +14,13 @@ export default defineOiyoConfig({
       },
     ],
     apis: [
-      'apis/*.ts',
-      'utils/*.ts',
-      'stores/*.ts',
-      { from: 'types/*.ts', types: true },
-
       'pinia',
       { from: '@wot-ui/ui', types: true },
+
+      './src/apis/*.ts',
+      './src/utils/*.ts',
+      './src/stores/*.ts',
+      { from: './src/types/*.ts', types: true },
     ],
   },
   ide: {
