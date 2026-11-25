@@ -2,7 +2,7 @@
   "name": "@oiyo-example/wot-starter",
   "type": "module",
   "version": "0.0.1",
-  "description": "由 Oiyo 赋能的 Wot Stater 快速启动模板",
+  "description": "由 Oiyo 赋能的 Wot Starter 快速启动模板",
   "author": {
     "name": "skiyee",
     "website": "https://oiyo.js.org",

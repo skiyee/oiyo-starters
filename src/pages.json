@@ -2,7 +2,7 @@
   "globalStyle": {
     "navigationBarBackgroundColor": "@navBgColor",
     "navigationBarTextStyle": "@navTxtStyle",
-    "navigationBarTitleText": "Oiyo Starter",
+    "navigationBarTitleText": "Oiyo Wot Starter",
     "backgroundColor": "@bgColor",
     "backgroundTextStyle": "@bgTxtStyle",
     "backgroundColorTop": "@bgColorTop",

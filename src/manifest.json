@@ -1,7 +1,7 @@
 {
   "name": "@oiyo-example/wot-starter",
   "appid": "",
-  "description": "由 Oiyo 赋能的 Wot Stater 快速启动模板",
+  "description": "由 Oiyo 赋能的 Wot Starter 快速启动模板",
   "versionName": "1.0.0",
   "versionCode": "100",
   "transformPx": false,

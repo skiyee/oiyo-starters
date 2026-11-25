@@ -462,7 +462,7 @@ function handleNavigate(url: string) {
       <WdCellGroup border custom-class="rounded-2! overflow-hidden">
         <WdCell title="📖 uni-app 页面路由文档" value="页面路由" is-link @click="handleNavigate('https://uniapp.dcloud.net.cn/tutorial/page.html')" />
         <WdCell title="📚 Oiyo 中间件文档" value="页面中间件" is-link @click="handleNavigate('https://oiyo.js.org/docs/manual/page/middleware')" />
-        <WdCell title="🐙 Oiyo GitHub" value="项目仓库" is-link @click="handleNavigate('https://github.com/skiyee/oiyo')" />
+        <WdCell title="🐙 Oiyo GitHub" value="项目仓库" is-link @click="handleNavigate('https://github.com/oiyojs/oiyo')" />
       </WdCellGroup>
     </DemoBlock>
   </view>

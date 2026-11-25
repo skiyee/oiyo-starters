@@ -9,7 +9,7 @@ export default definePagesConfig({
     // 导航栏配置（颜色变量来自 theme.json）
     navigationBarBackgroundColor: '@navBgColor',
     navigationBarTextStyle: '@navTxtStyle',
-    navigationBarTitleText: 'Oiyo Starter',
+    navigationBarTitleText: 'Oiyo Wot Starter',
 
     // 页面背景配置
     backgroundColor: '@bgColor',

@@ -3,7 +3,7 @@ import { defineManifestConfig } from 'oiyo/config'
 export default defineManifestConfig({
   'name': '@oiyo-example/wot-starter',
   'appid': '',
-  'description': '由 Oiyo 赋能的 Wot Stater 快速启动模板',
+  'description': '由 Oiyo 赋能的 Wot Starter 快速启动模板',
   'versionName': import.meta.env.VITE_APP_VERSION,
   'versionCode': '100',
   'transformPx': false,

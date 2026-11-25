@@ -68,10 +68,10 @@ function openUrl(url: string) {
   <view class="box-border py-3">
     <view class="mx-3 box-border rounded-3 px-4 py-6 text-center wot-bg-filled-oppo">
       <text class="mb-3 block text-left text-5 font-bold wot-text-text-main">
-        Oiyo Starter
+        Oiyo Wot Starter
       </text>
       <text class="mb-3 block text-left text-30rpx leading-relaxed wot-text-text-secondary">
-        ⚡️ 由 oiyo 框架赋能的 wot-stater 快速启动模板
+        ⚡️ 由 Oiyo 框架赋能的 Wot Starter 快速启动模板
       </text>
       <text class="block text-left text-3 leading-relaxed wot-text-text-auxiliary">
         背靠 Oiyo、Wot UI 团队，告别 HBuilderX ，拥抱现代前端开发工具链
