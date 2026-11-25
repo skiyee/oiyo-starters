@@ -64,6 +64,14 @@ pnpm dev
 - oiyo: [oiyo.js.org](https://oiyo.js.org/)
 - unibest: [unibest.tech](https://unibest.tech)
 
+## 🧩 模板选择
+
+| 模板                                                                    | 说明                                                    | 创建命令                                  |
+| ----------------------------------------------------------------------- | ------------------------------------------------------- | ----------------------------------------- |
+| [standard](https://github.com/skiyee/oiyo-starters/tree/main)           | 极简基线，只保留框架约定                                | `pnpm create oiyo --template=standard`    |
+| **unibest**（当前）                                                     | 融合 unibest 最佳实践，内置鉴权、国际化、自定义 TabBar  | `pnpm create oiyo --template=unibest`     |
+| [wot-starter](https://github.com/skiyee/oiyo-starters/tree/wot-starter) | 接入 Wot UI 2.x，含状态持久化与图表示例                 | `pnpm create oiyo --template=wot-starter` |
+
 ## 💞 社群
 
 我们提供社群，让每一个开发者都能参与最直接的交流：
@@ -95,5 +103,5 @@ pnpm dev
 
 ## ⚖️ 许可
 
-- [Oiyo License](https://github.com/skiyee/oiyo/blob/main/LICENSE)
+- [Oiyo License](https://github.com/oiyojs/oiyo/blob/main/LICENSE)
 - [Unibest License](https://github.com/feige996/unibest/blob/main/LICENSE)
