@@ -1,0 +1,23 @@
+{
+  "skill_name": "oiyo-migrate",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "我们项目还在用 @skiyee/oiyo 0.8.5，想升级到新的 oiyo，帮我迁一下。项目里 vite.config.ts 从 @skiyee/oiyo/plugin 引插件，oiyo.config.ts 里 scan.apis 写了 ['composables']。",
+      "expected_output": "先盘点旧用法，按顺序改依赖（oiyo + vite、type module、engines；@oiyo/uniapp 作为必需 peer 默认自动安装，无需显式声明）、替换入口（/plugin、/config、/global、/runtime）、把本地路径改成相对 rootDir 且以 ./ 开头、重新生成 .oiyo 并跑类型检查与 H5/小程序构建；明确列出未验证项。",
+      "files": []
+    },
+    {
+      "id": 2,
+      "prompt": "换成 oiyo 之后启动直接报 Cannot find package '@skiyee/oiyo/global'，我是不是少装了什么？",
+      "expected_output": "指出 /global 入口在 1.0.0 已删除，应改为 oiyo/runtime；同时检查是否还有 declare module '@skiyee/oiyo/global' 需要改成 'oiyo/runtime'，以及 .oiyo 是否需要重新生成。",
+      "files": []
+    },
+    {
+      "id": 3,
+      "prompt": "oiyo 升到 1.0 后，src/composables 里的函数都不能自动导入了，日志好像说无法解析 composables。",
+      "expected_output": "解释 1.0.0 的 scan 路径基准从 srcDir 改成 rootDir 且必须 ./ 开头，把 'composables' 改成 './src/composables'（或删除交给默认值），然后 oiyo prepare 刷新元数据并验证类型提示。",
+      "files": []
+    }
+  ]
+}
